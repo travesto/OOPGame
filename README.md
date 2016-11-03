@@ -5,7 +5,7 @@ A classic text based game with OOP Principles
 Design
 ========================
 The design idea I had was to make the game like a Dilbert/Office Space hybrid. If you’re not familiar with either of those, they’re both about the struggles of being a programmer in the corporate world; you should google it. Here’s a premise in bullet form, because bullet lists are great:
-  -Main character: You, the programmer!
+	-Main character: You, the programmer!
   -Environment: Some mega-corp office
   -Tasks
     -Compile code
