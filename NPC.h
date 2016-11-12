@@ -1,12 +1,6 @@
 #ifndef NPC_h
 #define NPC_h
 #include <iostream>
-// Questons to ask:
-// 1.What interactions are we allowing with the NPCs?
-// 2.Are we going to talk to the NPCs? (which ones?)
-// 3.What type of responses are we allowing?
-// 4.What are the roles that each NPC will fufill? (Decide what they are allowed to do to/for us)
-
 
 class NPC {
 	public:
