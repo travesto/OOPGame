@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cmap>
+#include <map>
 using namespace std;
 
 class room
@@ -10,10 +10,10 @@ public:
     ~room(); 
     void npcGeneration() {};
     void itemsGeneration() {};
-    string descriptionGet() {return roomDescritpion;}
+    string descriptionGet() {}//return roomDescritpion;}
 
 private:
-    map NPC;
-    map items;
-    map roomDescritpion;
+    // map NPC();
+    // map items();
+    // map roomDescritpion();
 };

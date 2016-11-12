@@ -5,8 +5,8 @@ using namespace std;
 class game
 {
     public:
-        game() //ctor
-        ~game() //dtor
+        game(); //ctor
+        ~game(); //dtor
         void input(char z) {};
         string showMap(char m) {};
         void currentLoc() {};
@@ -14,7 +14,7 @@ class game
         void deadlineInc(bool y) {};
         int checkTime(char t) {return deadline;}
     private:
-        int deadline = 500;
+        int deadline;
 };
 /*
     Behaviours
