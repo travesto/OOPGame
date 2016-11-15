@@ -13,7 +13,10 @@ public:
     string descriptionGet() {}//return roomDescritpion;}
 
 private:
-    // map NPC();
-    // map items();
-    // map roomDescritpion();
+    map<int, string> roomDescritpion;
+    // map items;
+    // map NPC;
 };
+
+string roomNum ("1,2,3,4,5");
+string roomDesc ("Blah, Blerg, Bleep");

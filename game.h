@@ -5,16 +5,22 @@ using namespace std;
 class game
 {
     public:
-        game(); //ctor
         ~game(); //dtor
-        void input(char z) {};
-        string showMap(char m) {};
+        void input(string in);
+        // string showMap(char m) {};
         void currentLoc() {};
         void deadlineDec(bool x) {};
         void deadlineInc(bool y) {};
-        int checkTime(char t) {return deadline;}
+        int checkTime();
+        static game* getter();
     private:
+        game(); //ctor
+        game(game const& copy) {};
+        static game* instance;
         int deadline;
+        textHandlerBase* commandChain;
+
+        friend int dummy();
 };
 /*
     Behaviours
