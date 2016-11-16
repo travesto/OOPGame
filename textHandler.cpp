@@ -1,4 +1,9 @@
 #include <iostream>
+#include <stdlib.h>
+#include "textHandler.h"
+#include "room.h"
+#include "game.h"
+#include "player.h"
 using namespace std;
 
 
@@ -7,31 +12,32 @@ textHandlerBase::textHandlerBase(string command)
     next = 0;
     cmd = command;
 }
-textHandlerBase::~textHandlerBase() {};
 void textHandlerBase::setNext(textHandlerBase* setN)
 {
     next = setN;
 }
-void textHandlerBase::addNext(textHandlerBase* add)
-{
-            if (next) {
-                next->addNext(add);
-            } else {
-                next = add;
-            }
-}
-void go::execute(string com, string args)
-{
-    if (com == "GO")
-    {
-        
-    }
-    else
-    {
-        textHandlerBase::handle()
-    }
-}
 void go::handle(int i)
 {
+    textHandlerBase* temp = getNext();
+    temp->handle(i);
+}
+void go::executeInternal(string)
+{
+    cout << "WHY ";
+    abort();
+}
+void look::handle(int i)
+{
     next->handle(i);
+}
+void look::executeInternal(string z)
+{
+    player* whereAmI = player::playerGet();
+    room* playerLocation = whereAmI->getLocation();
+    cout << playerLocation->descripGet() << endl;
+    game* action = game::getter();
+    action->deadlineDec();
+    cout << action->checkTime();
+    // abort();
+    //take more input
 }
