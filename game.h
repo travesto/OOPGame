@@ -15,7 +15,7 @@ class game
         void init();
         void deadlineDec();
         //void deadlineInc();
-        int checkTime();
+        void checkTime();
         static game* getter();
         room* gamePlayerGet();
     private:

@@ -26,6 +26,7 @@ game::game()
     deadline = 10;
     commandChain = new go();
     commandChain->addNext(new look());
+    commandChain->addNext(new check());
 }
 game::~game()
 {
@@ -35,10 +36,10 @@ game* game::getter()
 {
     return instance;
 }
-int game::checkTime()
+void game::checkTime()
 {
-    //cout << "You have: " << deadline << " moves left till you're late!" << endl;
-    return deadline;
+    cout << "You have: " << deadline << " moves left till you're late!" << endl;
+    //return deadline;
 }
 void game::deadlineDec()
 {
@@ -46,7 +47,7 @@ void game::deadlineDec()
     if (deadline == 0)
     {
         std::cout << endl << "You missed your deadline!" << endl << endl << "Running through the hallway, you barge into the conference room." << endl << "Your boss looks up from a very important TPS report and gives you the death glare." << endl << "You gulp." << endl << "You know you're done." << endl << "You're fired." << endl << endl << "THREE MONTHS LATER" << endl << endl << "You've adjusted to your new life living in your van down by the river." << endl <<"Occasionally you call your mother, only to hear her sob about how you threw away your potential." << endl <<"She cries." << endl << "You raise the bottle to your mouth, yearning for the sweet release." << endl << endl << "FOUR MONTHS LATER" << endl << endl << "The priest stands over the grave, silent and alone. 'Such a shame' he mutters." << endl << "'Dust to dust, ash to ash'. Crumbled soil falls onto the coffin." << endl <<"The priest turns and walks away." << endl << "YOU LOSE." << endl;
-        abort();
+        exit(0);
     }
 }
 void game::input(string com)

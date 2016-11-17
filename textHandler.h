@@ -60,3 +60,11 @@ public:
 private:
     
 };
+class check : public textHandlerBase
+{
+    public:
+        check() : textHandlerBase("CHECK") {};
+        ~check();
+        void executeInternal(string args);
+        void handle(int i);
+}; 

@@ -16,6 +16,13 @@ void room::setRoom(direction dir, room* adj)
     direction temp = reverse(dir);
     adj->roomAdj[temp] = this;
 }
+room* room::getRoom(direction dir)
+{
+    if (roomAdj) 
+    {
+        return roomAdj[dir];    
+    }
+}
 void room::addDesc(string desc)
 {
     descriptions.push_back(desc);

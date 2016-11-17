@@ -27,15 +27,14 @@ int main()
         cout << "Starting new game" << endl;
         game* newGame = game::getter();
         newGame->init();
-        cin >> command >> direction;
-        command = command + " " + direction;
         // cout << "RABBITS" << endl;
         try
         {
-            
             while (true)
             {
-               newGame->input(command);
+                cin >> command >> direction;
+                command = command + " " + direction;
+                newGame->input(command);
             }
         }
         catch (const std::exception&) //end game

@@ -23,8 +23,9 @@ void go::handle(int i)
 }
 void go::executeInternal(string)
 {
-    cout << "WHY ";
-    abort();
+    player* whereAmI = player::playerGet();
+    room* playerLocation = whereAmI->getLocation();
+    playerLocation = player::setLocation()
 }
 void look::handle(int i)
 {
@@ -37,7 +38,14 @@ void look::executeInternal(string z)
     cout << playerLocation->descripGet() << endl;
     game* action = game::getter();
     action->deadlineDec();
-    cout << action->checkTime();
-    // abort();
     //take more input
+}
+void check::executeInternal(string x)
+{
+    game* getGame = game::getter();
+    getGame->checkTime();
+}
+void check::handle(int i)
+{
+    next->handle(i);
 }

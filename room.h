@@ -47,6 +47,7 @@ class room
         void itemsGeneration() {};
         string descripGet();
         void setRoom(direction, room*);
+        void getRoom(direction);
 
     private:
         map<direction, room*> roomAdj;
