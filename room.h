@@ -9,6 +9,7 @@
 using namespace std;
 
 enum direction {NORTH, EAST, SOUTH, WEST, INVALID};
+
 direction reverse(direction dir)
 {
     switch (dir)
@@ -37,6 +38,17 @@ direction reverse(direction dir)
     return INVALID;
     
 }
+direction getFromString(string b)
+{
+    string inputDirections[] = {"NORTH", "EAST", "SOUTH", "WEST", "INVALID"};
+    for (int i = 0; i < 5; i++)
+    {
+        if (b == inputDirections[i])
+        {
+            return (direction)i;
+        }
+    }
+}
 class room
 {
     public:
@@ -47,7 +59,7 @@ class room
         void itemsGeneration() {};
         string descripGet();
         void setRoom(direction, room*);
-        void getRoom(direction);
+        room* getRoom(direction);
 
     private:
         map<direction, room*> roomAdj;

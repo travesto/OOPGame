@@ -18,7 +18,7 @@ void room::setRoom(direction dir, room* adj)
 }
 room* room::getRoom(direction dir)
 {
-    if (roomAdj) 
+    if (roomAdj[dir]) 
     {
         return roomAdj[dir];    
     }

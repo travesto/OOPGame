@@ -21,11 +21,22 @@ void go::handle(int i)
     textHandlerBase* temp = getNext();
     temp->handle(i);
 }
-void go::executeInternal(string)
+void go::executeInternal(string a)
 {
     player* whereAmI = player::playerGet();
     room* playerLocation = whereAmI->getLocation();
-    playerLocation = player::setLocation()
+    direction newDir = getFromString(a);
+    room* newRoom = playerLocation->getRoom(newDir);
+    if(newRoom)
+    {
+        whereAmI->setLocation(newRoom);
+        game* action = game::getter();
+        action->deadlineDec();    
+    }
+    else
+    {
+        cout << "You walked into the wall, dummy.\nTry a different direction or LOOK AROUND.\n";    
+    }
 }
 void look::handle(int i)
 {
