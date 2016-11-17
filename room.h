@@ -29,8 +29,13 @@ direction reverse(direction dir)
         {
             return EAST;
         }
+        case INVALID:
+        {
+            return INVALID;
+        }
     }
     return INVALID;
+    
 }
 class room
 {

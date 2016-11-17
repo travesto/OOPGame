@@ -1,4 +1,4 @@
-int dummy(){};
+int dummy(){return 0;}
 
 #include <iostream>
 #include <string>

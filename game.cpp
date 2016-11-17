@@ -54,7 +54,7 @@ void game::input(string com)
     //std::cout << "AKBAR!";
     string input = com;
     string remaining = "";
-    for (int i = 0; i < com.length(); i++)
+    for (int i = 0; (unsigned)i < com.length(); i++)
     {
         if (com[i] == ' ')
         {
