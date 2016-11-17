@@ -21,7 +21,7 @@ void NPC::setDialogue() const {
 		case 0:
 			this->npcDialogue = "Konnichiwa! (Good day!/Hello!)";
 		case 1:
-			this->npcDialogue = "What's up pleb.'";
+			this->npcDialogue = "What's up pleb.";
 		case 2:
 			this->npcDialogue = "What do you want? I am busy!";
 		case 3:
