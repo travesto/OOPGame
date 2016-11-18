@@ -12,12 +12,14 @@ string command, direction;
 int main()
 {
     cout << "To begin a new game, type 'START'. To leave, type 'QUIT'" << endl;
-    cin >> command;
-    while (command != "START" && command != "QUIT")
+    do
     {
-        cout << "Please use proper syntax." << endl;
         cin >> command;
+        if(command != "START" && command != "QUIT")
+            cout << "Please use proper syntax." << endl;
     }
+    while (command != "START" && command != "QUIT");
+    
     if (command == "QUIT")
     {
         return 0;
@@ -32,9 +34,10 @@ int main()
         {
             while (true)
             {
-                cin >> command >> direction;
-                command = command + " " + direction;
-                newGame->input(command);
+                getline(cin, command);
+                // cout << command << endl;
+                if(command != "")
+                    newGame->input(command);
             }
         }
         catch (const std::exception&) //end game

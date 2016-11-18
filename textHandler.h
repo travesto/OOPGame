@@ -8,7 +8,7 @@ class textHandlerBase
     public:
         textHandlerBase(string cmdName);
         ~textHandlerBase() {};
-        void execute(string command, string args)
+        virtual void execute(string command, string args)
         {
             //cout << "MEOW"; 
             if(command == cmd)
@@ -40,6 +40,16 @@ class textHandlerBase
         
         
 };
+class no : public textHandlerBase
+{
+    public:
+        no():textHandlerBase("NO"){};
+        ~no();
+        void executeInternal(string args);
+        void handle(int i);
+    private:
+    
+};
 class go : public textHandlerBase
 {
     public:
@@ -68,3 +78,12 @@ class check : public textHandlerBase
         void executeInternal(string args);
         void handle(int i);
 }; 
+class invalid : public textHandlerBase
+{
+    public:
+        invalid() : textHandlerBase("") {};
+        ~invalid() {};
+        void execute(string command, string args);
+        void executeInternal(string args) {};
+        void handle(int i) {};
+};

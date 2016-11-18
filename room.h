@@ -48,6 +48,7 @@ direction getFromString(string b)
             return (direction)i;
         }
     }
+    return INVALID;
 }
 class room
 {

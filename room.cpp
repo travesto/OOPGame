@@ -22,6 +22,7 @@ room* room::getRoom(direction dir)
     {
         return roomAdj[dir];    
     }
+    return NULL;
 }
 void room::addDesc(string desc)
 {
