@@ -1,4 +1,9 @@
 #include <iostream>
+#include <stdlib.h>
+#include "textHandler.h"
+#include "room.h"
+#include "game.h"
+#include "player.h"
 using namespace std;
 
 
@@ -7,31 +12,51 @@ textHandlerBase::textHandlerBase(string command)
     next = 0;
     cmd = command;
 }
-textHandlerBase::~textHandlerBase() {};
 void textHandlerBase::setNext(textHandlerBase* setN)
 {
     next = setN;
 }
-void textHandlerBase::addNext(textHandlerBase* add)
+void go::handle(int i)
 {
-            if (next) {
-                next->addNext(add);
-            } else {
-                next = add;
-            }
+    textHandlerBase* temp = getNext();
+    temp->handle(i);
 }
-void go::execute(string com, string args)
+void go::executeInternal(string a)
 {
-    if (com == "GO")
+    player* whereAmI = player::playerGet();
+    room* playerLocation = whereAmI->getLocation();
+    direction newDir = getFromString(a);
+    room* newRoom = playerLocation->getRoom(newDir);
+    if(newRoom)
     {
-        
+        whereAmI->setLocation(newRoom);
+        game* action = game::getter();
+        action->deadlineDec();    
     }
     else
     {
-        textHandlerBase::handle()
+        cout << "You walked into the wall, dummy.\nTry a different direction or LOOK AROUND.\n";    
     }
 }
-void go::handle(int i)
+void look::handle(int i)
+{
+    next->handle(i);
+}
+void look::executeInternal(string z)
+{
+    player* whereAmI = player::playerGet();
+    room* playerLocation = whereAmI->getLocation();
+    cout << playerLocation->descripGet() << endl;
+    game* action = game::getter();
+    action->deadlineDec();
+    //take more input
+}
+void check::executeInternal(string x)
+{
+    game* getGame = game::getter();
+    getGame->checkTime();
+}
+void check::handle(int i)
 {
     next->handle(i);
 }
