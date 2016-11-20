@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <map>
+#include "item.h"
 
 using namespace std;
 
@@ -57,13 +58,18 @@ class room
         ~room(); 
         // void npcGeneration() {};
         void addDesc(string x);
-        void itemsGeneration() {};
+		void itemGeneration(string itemName);
         string descripGet();
         void setRoom(direction, room*);
         room* getRoom(direction);
+		int checkForItems(string itemName);
+		void examineItem(string itemName, std::ostream& out);
+		int useItem(string itemName);
 
     private:
         map<direction, room*> roomAdj;
+		item* itemList;
+		int itemCount;
         std::vector<string> descriptions;
 };
 

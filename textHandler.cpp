@@ -67,6 +67,28 @@ void check::handle(int i)
 {
     next->handle(i);
 }
+//item interface
+void use::executeInternal(string a)
+{
+	player* whereAmI = player::playerGet();
+	room* playerLocation = whereAmI->getLocation();
+	if (playerLocation->checkForItems(a) >= 0)
+	{
+		cout << "experimental item used.";
+		game* action = game::getter();
+		action->changeDeadline(playerLocation->useItem(a));
+	}
+	else
+	{
+		cout << "There is no such thing in your vicinity."; 
+	}
+}
+void use::handle(int i)
+{
+	textHandlerBase* temp = getNext();
+	temp->handle(i);
+}
+//end item interface
 void no::executeInternal(string args)
 {
     game* action = game::getter();

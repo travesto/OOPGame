@@ -43,6 +43,11 @@ void game::checkTime()
     cout << "You have: " << deadline << " moves left till you're late!" << endl;
     //return deadline;
 }
+void game::changeDeadline(int deadlineChange)
+{
+	deadline += deadlineChange;
+	return;
+}
 void game::deadlineDec()
 {
     deadline--;

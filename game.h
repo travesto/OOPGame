@@ -14,6 +14,7 @@ class game
         // string showMap(char m) {};
         void init();
         void deadlineDec();
+		void changeDeadline(int deadlineChange);
         //void deadlineInc();
         void checkTime();
         static game* getter();
