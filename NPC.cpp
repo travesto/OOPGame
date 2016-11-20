@@ -6,12 +6,11 @@ using namespace std;
 NPC::NPC(string n) {
 	this->name = n;
 	this->npcDialogue = "Hello I am " + this->name + ".";
-	cout << this->npcDialogue << endl;
 }
 
 void NPC::setDialogue() {
-	srand(time(NULL));
-	int randNum = rand() % 5 + 1;
+	srand(time(0));
+	int randNum = rand() % 5 + 0;
 	switch(randNum) {
 		case 0:
 			this->npcDialogue = "Konnichiwa! (Good day!/Hello!)";
