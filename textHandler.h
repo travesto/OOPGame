@@ -78,6 +78,14 @@ class check : public textHandlerBase
         void executeInternal(string args);
         void handle(int i);
 }; 
+class showMap : public textHandlerBase
+{
+    public:
+        showMap() : textHandlerBase("MAP") {};
+        ~showMap();
+        void executeInternal(string args);
+        void handle(int i);
+};
 class quit : public textHandlerBase
 {
     public:

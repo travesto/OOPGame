@@ -24,9 +24,9 @@ void game::init()
     room* fifteenth = new room();
     room* sixteenth = new room();
     room* seventeenth = new room();
-    room* eighteenth = new room();
-    room* nineteenth = new room();
-    room* twentieth = new room();
+    // room* eighteenth = new room();
+    // room* nineteenth = new room();
+    // room* twentieth = new room();
     room* twentifirst = new room();
     room* twentisecond = new room();
     room* twentithird = new room();
@@ -34,8 +34,8 @@ void game::init()
     room* twentififth = new room();
     room* twentisixth = new room();
     room* twentiseventh = new room();
-    room* twentieighth = new room();
-    room* twentininth = new room();
+    // room* twentieighth = new room();
+    // room* twentininth = new room();
     room* thirtieth = new room();
 
     first->setRoom(NORTH, second);
@@ -58,25 +58,45 @@ void game::init()
     fourteenth->setRoom(EAST, fifteenth);
     fifteenth->setRoom(SOUTH, twentiseventh);
     sixteenth->setRoom(WEST, fifteenth);
-    seventeenth->setRoom(EAST, eighteenth);
-    eighteenth->setRoom(EAST, twentieth);
-    nineteenth->setRoom(NORTH, eighteenth);
-    nineteenth->setRoom(WEST, sixteenth);
+    seventeenth->setRoom(NORTH, tenth);
+    seventeenth->setRoom(SOUTH, sixteenth);
+    // eighteenth->setRoom(EAST, twentieth);
+    // nineteenth->setRoom(NORTH, eighteenth);
+    // nineteenth->setRoom(WEST, sixteenth);
     twentisecond->setRoom(SOUTH, twentithird);
     twentithird->setRoom(SOUTH, thirtieth);
     twentifourth->setRoom(WEST, twentithird);
     twentififth->setRoom(WEST, twentifourth);
     twentisixth->setRoom(WEST, twentififth);
     twentiseventh->setRoom(SOUTH, twentisixth);
-    twentieighth->setRoom(WEST, twentisixth);
-    twentininth->setRoom(WEST, twentieighth);
+    // twentieighth->setRoom(WEST, twentisixth);
+    // twentininth->setRoom(WEST, twentieighth);
 
-    first->addDesc("\nYou're in your cubicle. It's small, beige, and boring.\nThere's a poster of a kitty on the wall telling you to 'Hang in there buddy!'\nMotivation +1. Cynicism +5.");
-    second->addDesc("Hallway");
-    third->addDesc("Conference Room");
-    fourth->addDesc("A dark, black void awaits.");
-    eleventh->addDesc("It's the break room. Cheryl is here.\n'Want to hear my favourite story?' asks Cheryl.(YES/NO)");
-    twentifourth->addDesc("Your boss be here!");
+    first->addDesc("\nYou're in your Cubicle. It's small, beige, and boring.\nThere's a poster of a kitty on the wall telling you to 'Hang in there buddy!'\nMotivation +1. Cynicism +5.\nThere are doors to the NORTH and SOUTH.");
+    second->addDesc("\nYou're in the Hallway. The incandescent lights flicker drearily,\nreminding you of the soul-less nature of corporate America.\nThere are doors to the EAST and SOUTH.");
+    third->addDesc("\nYou're in the Copy Room. The Xerox machine hums and whirs, perpetually copying, scanning, printing, and jamming;\nan apt metaphor for your life.\nThere are doors to the EAST and WEST.");
+    fourth->addDesc("\nYou're in the Hallway. The incandescent lights flicker drearily, reminding you of the soul-less nature of corporate America.\nThere are doors to the EAST and WEST.");
+    fifth->addDesc("\nYou're in the Lobby. The receptionist stares blankly at you as she answers the phone.\n'Thank you for calling Prather Corp. Please hold.'\nThere are doors to the NORTH, EAST, SOUTH and WEST.");
+    sixth->addDesc("\nYou're in the Parking Lot. Fresh air! Just being outside feels so good;\nbut you know you won't find your boss here.\nThere are doors to the SOUTH.");
+    seventh->addDesc("\nYou're in the Conference Room. A long table stretches into the dark room before you.\nThere are doors to the EAST, SOUTH, and WEST.");
+    eighth->addDesc("\nYou're in the Hallway. The incandescent lights flicker drearily,\nreminding you of the soul-less nature of corporate America.\nThere are doors to the EAST and WEST.");
+    ninth->addDesc("\nYou're in the Supplies Closet. Around you are stacks and stacks of paper, toner, pens, but no staplers...\nThere are doors to the NORTH.");
+    tenth->addDesc("\nYou're in the Hallway. The incandescent lights flicker drearily,\nreminding you of the soul-less nature of corporate America.\nThere are doors to the NORTH and SOUTH.");
+    eleventh->addDesc("It's the Break Room. Cheryl is here.\n'Want to hear my favourite story?' asks Cheryl.(YES/NO)");
+    twelfth->addDesc("\nYou're in the Hallway. The incandescent lights flicker drearily,\nreminding you of the soul-less nature of corporate America.\nThere are doors to the NORTH and SOUTH.");
+    thirteenth->addDesc("\nYou're in the Server Closet. Wires. Wires everywhere.\nThe closet is a mess. You keep meaning to fix this, but where to start?\nThere are rooms to the SOUTH and WEST.");
+    fourteenth->addDesc("\nYou're in the Bathroom. There's a pervasive smell of urine and those urinal donut things.\nThere are doors to the NORTH and EAST.");
+    fifteenth->addDesc("\nYou're in the Janitor Closet. It's mostly mops and cleaning supplies. What did you expect?\nThere are doors to the EAST, SOUTH, and WEST.");
+    sixteenth->addDesc("\nYou're in the Atrium. The skylights provide a constant reminder that you're stuck inside.\nThere are doors to the NORTH and WEST.");
+    seventeenth->addDesc("\nYou're in the Stairwell. There's stairs going up and down, which is odd because there's only one floor.\nThere are doors to the NORTH and SOUTH.");
+    twentifirst->addDesc("\nYou're in the Company Dungeon. It's dark and damp. Strange noises echo in the dark. Your skin crawls.\nThere are doors to the WEST.");
+    twentisecond->addDesc("\nYou're in the Call Center. The phones ring incessantly. Ask not for whom the phone rings. It rings for thee.\nThere are doors to the NORTH and SOUTH.");
+    twentithird->addDesc("\nYou're in the Commissary. The smell of questionable meals wafts under your nose.\nYou're put off by the mystery amalgamation they're serving today.\nThere are doors to the NORTH, EAST, and SOUTH.");
+    twentifourth->addDesc("You're in the Boss's Bathroom!");
+    twentififth->addDesc("\nYou're in the Testing Lab. The room is incredibly sterile. And here you are tracking your dirt shoes across the floor!\nThere are doors to the EAST and WEST.");
+    twentisixth->addDesc("\nYou're in the Executive Suite. Your Boss's office is plush, elegant, and the reason no one got bonuses last year.\nThere are doors to the NORTH and WEST.");
+    twentiseventh->addDesc("\nYou're in the Accounting Department. This is where the Bean Pushers work the books. They never laugh at you're jokes.\nWhat nerds.");
+    thirtieth->addDesc("You're in the Human Resources Office. This is where you bring your late timesheets. This is where they tell you sending Cat Pics to the entire staff is inappropriate behaviour.\nThere are doors to the NORTH.");    
     
     player::playerGet()->setLocation(first);
     
@@ -88,12 +108,13 @@ void game::init()
 
 game::game()
 {
-    deadline = 100;
+    deadline = 150;
     commandChain = new go();
     commandChain->addNext(new look());
     commandChain->addNext(new check());
     commandChain->addNext(new use());
     commandChain->addNext(new no());
+    commandChain->addNext(new showMap());
     commandChain->addNext(new quit());
     commandChain->addNext(new invalid());
     
