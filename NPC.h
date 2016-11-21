@@ -6,7 +6,7 @@ class NPC {
 	public:
 		NPC(std::string); //Give an NPC a name
 		~NPC() {}
-		std::string getDialogue();
+		std::string getDialogue() const;
 		void setDialogue();
 		
 		
