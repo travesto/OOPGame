@@ -1,0 +1,22 @@
+The game uses the following commands:
+
+START
+GO <Direction>
+CHECK TIME
+LOOK AROUND
+NO
+
+A simple demo playthrough would use the following:
+START
+LOOK AROUND
+CHECK TIME
+GO NORTH
+LOOK AROUND
+CHECK TIME
+GO EAST
+LOOK AROUND
+CHECK TIME
+NO
+GO SOUTH
+GO WEST
+LOOK AROUND
