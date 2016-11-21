@@ -27,8 +27,12 @@ game::game()
     commandChain = new go();
     commandChain->addNext(new look());
     commandChain->addNext(new check());
+    commandChain->addNext(new use());
     commandChain->addNext(new no());
+    commandChain->addNext(new quit());
     commandChain->addNext(new invalid());
+    
+    
 }
 game::~game()
 {

@@ -36,7 +36,7 @@ void go::executeInternal(string a)
         whereAmI->setLocation(newRoom);
         game* action = game::getter();
         action->deadlineDec();
-        cout << endl;    
+        cout << "You have arrived." << endl << endl;    
     }
     else
     {
@@ -67,26 +67,33 @@ void check::handle(int i)
 {
     next->handle(i);
 }
-//item interface
-void use::executeInternal(string a)
+void quit::executeInternal(string args)
 {
-	player* whereAmI = player::playerGet();
+    cout << "Goodbye."<< endl;
+    exit(0);
+}
+//item interface
+void use::executeInternal(string args)
+{
+	// cout << "I'm being used!" << endl;
+    player* whereAmI = player::playerGet();
 	room* playerLocation = whereAmI->getLocation();
-	if (playerLocation->checkForItems(a) >= 0)
+	// cout << "TEST" << endl;
+    if (playerLocation->checkForItems(args) >= 0)
 	{
-		cout << "experimental item used.";
+		cout << "experimental item used.\n\n";
 		game* action = game::getter();
-		action->changeDeadline(playerLocation->useItem(a));
+		action->changeDeadline(playerLocation->useItem(args));
 	}
 	else
 	{
-		cout << "There is no such thing in your vicinity."; 
+		cout << "There is no such thing in your vicinity.\n\n"; 
 	}
 }
 void use::handle(int i)
 {
-	textHandlerBase* temp = getNext();
-	temp->handle(i);
+	// textHandlerBase* temp = getNext();
+	next->handle(i);
 }
 //end item interface
 void no::executeInternal(string args)

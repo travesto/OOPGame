@@ -78,12 +78,20 @@ class check : public textHandlerBase
         void executeInternal(string args);
         void handle(int i);
 }; 
+class quit : public textHandlerBase
+{
+    public:
+        quit() : textHandlerBase("QUIT") {};
+        ~quit() {};
+        void executeInternal(string command);
+        void handle(int i) {};
+};
 class use : public textHandlerBase
 {
 public:
 	use() : textHandlerBase("USE") {};
-	~use() {};
-	void executeInternal(string args);
+	~use();
+    void executeInternal(string args);
 	void handle(int i);
 };
 class invalid : public textHandlerBase
