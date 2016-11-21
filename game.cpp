@@ -6,24 +6,89 @@
 
 void game::init()
 {
+    //room listings
     room* first = new room();
     room* second = new room();
     room* third = new room();
+    room* fourth = new room();
+    room* fifth = new room();
+    room* sixth = new room();
+    room* seventh = new room();
+    room* eighth = new room();
+    room* ninth = new room();
+    room* tenth = new room();
+    room* eleventh = new room();
+    room* twelfth = new room();
+    room* thirteenth = new room();
+    room* fourteenth = new room();
+    room* fifteenth = new room();
+    room* sixteenth = new room();
+    room* seventeenth = new room();
+    room* eighteenth = new room();
+    room* nineteenth = new room();
+    room* twentieth = new room();
+    room* twentifirst = new room();
+    room* twentisecond = new room();
+    room* twentithird = new room();
+    room* twentifourth = new room();
+    room* twentififth = new room();
+    room* twentisixth = new room();
+    room* twentiseventh = new room();
+    room* twentieighth = new room();
+    room* twentininth = new room();
+    room* thirtieth = new room();
+
     first->setRoom(NORTH, second);
+    first->setRoom(SOUTH, fourth);
     second->setRoom(EAST, third);
+    third->setRoom(EAST, fifth);
+    fourth->setRoom(WEST, eleventh);
+    fourth->setRoom(EAST, thirteenth);
+    fifth->setRoom(NORTH, sixth);
+    fifth->setRoom(SOUTH, ninth);
+    fifth->setRoom(EAST, seventh);
+    seventh->setRoom(SOUTH, tenth);
+    seventh->setRoom(EAST, eighth);
+    eighth->setRoom(EAST, twentifirst);
+    ninth->setRoom(EAST, tenth);
+    tenth->setRoom(SOUTH, seventeenth);
+    eleventh->setRoom(SOUTH, twelfth);
+    twelfth->setRoom(SOUTH, twentisecond);
+    thirteenth->setRoom(SOUTH, fourteenth);
+    fourteenth->setRoom(EAST, fifteenth);
+    fifteenth->setRoom(SOUTH, twentiseventh);
+    sixteenth->setRoom(WEST, fifteenth);
+    seventeenth->setRoom(EAST, eighteenth);
+    eighteenth->setRoom(EAST, twentieth);
+    nineteenth->setRoom(NORTH, eighteenth);
+    nineteenth->setRoom(WEST, sixteenth);
+    twentisecond->setRoom(SOUTH, twentithird);
+    twentithird->setRoom(SOUTH, thirtieth);
+    twentifourth->setRoom(WEST, twentithird);
+    twentififth->setRoom(WEST, twentifourth);
+    twentisixth->setRoom(WEST, twentififth);
+    twentiseventh->setRoom(SOUTH, twentisixth);
+    twentieighth->setRoom(WEST, twentisixth);
+    twentininth->setRoom(WEST, twentieighth);
+
     first->addDesc("\nYou're in your cubicle. It's small, beige, and boring.\nThere's a poster of a kitty on the wall telling you to 'Hang in there buddy!'\nMotivation +1. Cynicism +5.");
     second->addDesc("Hallway");
     third->addDesc("Conference Room");
-
-    player::playerGet()->setLocation(first);
-    cout << "\nMONDAY -- 9AM\nYou've settled into the routine at you job here at PratherCorp.\nEach day you show up, check your email, check Reddit, get coffee, go to the bathroom to play Tetris on your phone.\nCheck your email. Ignore the email your mom sent you.\nRead the memo about TPS reports. Toss the memo into hoop over the garbarge.\nYou miss.\nLunch break!\nSomeone ate your sandwich in the break room, probably Steve...\nBack to your Desk. Check email. Check ReOH CRAP\nYou see your boss walking across the office towards you. You hunker down, hoping to go unnoticed.\n'Well hello.' says Lumbergh.\n'Listen, I'm going to need one those computery programs you make for my board meeting at 5 today. \nThink you can do that? If you could do that, that would be greeaaat.'\nLumbergh leaves. You look at your computer. You think about crying. You think about quitting. You bang you head on the keyboard.\nYou take a deep breath and start typing.\nHuh. It only took you like an hour to write. Must be due to your excellent Professors.\nYou save the program to your floppy. You get up."<< endl;
+    fourth->addDesc("A dark, black void awaits.");
+    eleventh->addDesc("It's the break room. Cheryl is here.\n'Want to hear my favourite story?' asks Cheryl.(YES/NO)");
+    twentifourth->addDesc("Your boss be here!");
     
-    cout << "\nWhat would you like to do?\nYou have 10 moves to find your boss!\nYou can 'GO NORTH' or a similar direction.\nYou can also 'CHECK TIME' and 'LOOK AROUND'\n"<< endl;
+    player::playerGet()->setLocation(first);
+    
+    //START DIALOGUE
+    cout << "\nMONDAY -- 9AM\nYou've settled into the routine at you job here at PratherCorp.\nEach day you show up, check your email, check Reddit, get coffee, go to the bathroom to play Tetris on your phone.\nCheck your email. Ignore the email your mom sent you.\nRead the memo about TPS reports. Toss the memo into hoop over the garbarge.\nYou miss.\nLunch break!\nSomeone ate your sandwich in the break room, probably Steve...\nBack to your Desk. Check email. Check Re--OH CRAP\nYou see your boss walking across the office towards you. You hunker down hoping to go unnoticed.\n'Well hello.' says Lumbergh.\n'Listen, I'm going to need one those computery programs you make for my board meeting at 5 today. \nThink you can do that? If you could do that, that would be greeaaat.'\nLumbergh leaves. You look at your computer. You think about crying. You think about quitting. You bang you head on the keyboard.\nYou take a deep breath and start typing.\nHuh. It only took you like an hour to write.\nMust be due to your excellent Professors.\nYou save the program to your floppy. You get up."<< endl;
+    
+    cout << "\nWhat would you like to do?\nYou have " << deadline << " moves to find your boss!\nYou can 'GO NORTH' or a similar direction.\nYou can also 'CHECK TIME' and 'LOOK AROUND'\n"<< endl;
 }
 
 game::game()
 {
-    deadline = 10;
+    deadline = 100;
     commandChain = new go();
     commandChain->addNext(new look());
     commandChain->addNext(new check());
