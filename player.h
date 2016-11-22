@@ -11,7 +11,7 @@ class player
 public:
     ~player() {};
     void setLocation(room* x); //loc setter
-    room* getLocation(); //loc getter
+    room* getLocation() const; //loc getter
     static player* playerGet();
 private:
     player() {};

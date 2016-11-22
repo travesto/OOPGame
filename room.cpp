@@ -30,7 +30,7 @@ void room::addDesc(string desc)
 {
     descriptions.push_back(desc);
 }
-string room::descripGet()
+string room::descripGet() const
 {
     int v1 = rand() % descriptions.size();
     return descriptions[v1];

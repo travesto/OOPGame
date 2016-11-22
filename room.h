@@ -59,7 +59,7 @@ class room
         // void npcGeneration() {};
         void addDesc(string x);
 		void itemGeneration(string itemName);
-        string descripGet();
+        string descripGet() const;
         void setRoom(direction, room*);
         room* getRoom(direction);
 		int checkForItems(string itemName);

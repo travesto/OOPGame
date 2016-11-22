@@ -37,7 +37,7 @@ void go::executeInternal(string a)
         whereAmI->setLocation(newRoom);
         game* action = game::getter();
         action->deadlineDec();
-        cout << "You have arrived." << endl << endl;
+        cout << "You have arrived." << endl << newRoom->descripGet() << endl << endl;
     }
     else
     {
@@ -52,15 +52,21 @@ void look::executeInternal(string z)
 {
     player* whereAmI = player::playerGet();
     room* playerLocation = whereAmI->getLocation();
-    if (playerLocation->descripGet() =="You're in the Boss's Bathroom!")
+    if (playerLocation->descripGet() =="You're outside of the Boss's Bathroom. Maybe you should 'LOOK AROUND' to see if he's there.")
     {
-        cout << playerLocation->descripGet() << endl;
-        cout << "You found your boss! You win!\n";
+        cout << "It's locked. Knock on the door?(YES/NO)"<< endl;
+        string toilet;
+        cin >> toilet;
+        if (toilet == "YES")
+        {
+            cout << "You go to knock on the door, but it flies open in front of you!\n'Well hello' says Lumbergh. 'Fancy seeing you here. Do you have that program for me?'\nYou raise your floppy disk to give it to Lumbergh. 'Actually we need a program to show our TPS report compliance.\nCan your program do that?\nYou rage inside. TPS compliance wasn't on his original specs!\n'OF COURSE NOT! YOU DIDN'T YOU SAY SO AT THE START, YOU IMBECILE!' you bellow.\nExcept you don't.\nYou smile and say, 'Oh sure, no problem. I can get it to you by next Monday'.\n'Actually, if you could finish that by tomorrow, that'd be greeeaaat.' intones Lumbergh.\nYou turn, resigned and trudge back to your Cubicle.\nIt's going to be a long night." << endl << endl << "You won! Yay!";
+        }
+        sleep(2);
         exit(0);
     }
-    else if (playerLocation->descripGet() == "It's the Break Room. Cheryl is here.\n'Want to hear my favourite story?' asks Cheryl.(YES/NO)")
+    else if (playerLocation->descripGet() == "\nIt's the Break Room. 'LOOK AROUND' to see if anyone is here?")
     {
-        cout << playerLocation->descripGet() << endl;
+        cout << "Cheryl is here. 'Want to hear my favourite story?'(YES/NO)" << endl;
         string moby;
         cin >> moby;
         if (moby == "YES")
@@ -69,9 +75,9 @@ void look::executeInternal(string z)
             sleep(5);
             cout << endl << "But these are all landsmen; of week days pent up in lath and plaster--tied to counters, nailed to benches, clinched to desks.\nHow then is this?  Are the green fields gone? What do they here?\nBut look! here come more crowds, pacing straight for the water, and seemingly bound for a dive.\nStrange!\nNothing will content them but the extremest limit of the land; loitering under the shady lee of yonder warehouses will not suffice.\nNo. They must get just as nigh the water as they possibly can without falling in.\nAnd there they stand--miles of them--leagues.\nInlanders all, they come from lanes and alleys, streets and avenues--north, east, south, and west.  Yet here they all unite.  Tell me, does the magnetic virtue of the needles of the compasses of all those ships attract them thither?\nOnce more. Say you are in the country; in some high land of lakes.\nTake almost any path you please, and ten to one it carries you down in a dale, and leaves you there by a pool in the stream.\nThere is magic in it.\nLet the most absent-minded of men be plunged in his deepest reveries--stand that man on his legs, set his feet a-going, and he will infallibly lead you to water, if water there be in all that region.\nShould you ever be athirst in the great American desert, try this experiment, if your caravan happen to be supplied with a metaphysical professor.\nYes, as every one knows, meditation and water are wedded for ever.\nBut here is an artist.\nHe desires to paint you the dreamiest, shadiest, quietest, most enchanting bit of romantic landscape in all the valley of the Saco.\nWhat is the chief element he employs?\nThere stand his trees, each with a hollow trunk, as if a hermit and a crucifix were within; and here sleeps his meadow, and there sleep his cattle; and up from yonder cottage goes a sleepy smoke.\nDeep into distant woodlands winds a mazy way, reaching to overlapping spurs of mountains bathed in their hill-side blue.\n";
             sleep(2);
-            cout << "- - - - " << endl << "- - - - - -" << endl << "blah blah blah blah" << endl << "- - - - - -" << endl << "- - - - " << endl << "'Hey are you listening?!' Oh boy, you dozed off there for a bit.\nYou make some flimsy excuse to get away from Cheryl.\nMan that story was boring!\nOh snap! It looks like listening to that story cost you 25 moves!\n" << endl;
+            cout << "- - - - " << endl << "- - - - - -" << endl << "blah blah blah blah" << endl << "- - - - - -" << endl << "- - - - " << endl << "'Hey are you listening?!' Oh boy, you dozed off there for a bit.\nYou make some flimsy excuse to get away from Cheryl.\nMan that story was boring!\nOh snap! It looks like listening to that story cost you 10 moves!\n" << endl;
             game* action = game::getter();
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < 10; i++)
             {
                 action->deadlineDec();
             }
@@ -80,6 +86,7 @@ void look::executeInternal(string z)
     }
     else
     {
+        cout << "It didnt catch";
         cout << playerLocation->descripGet() << endl;
         game* action = game::getter();
         action->deadlineDec();
@@ -100,7 +107,7 @@ void check::handle(int i)
 }
 void showMap::executeInternal(string z)
 {
-    cout << "          6\n    2  3  5  7  8  21\n    1     9  10\n11  4  13    17 18 20\n12     14 15 16 19\n22        27\n23  24 25 26 28 29\n30\n\n";   
+    cout << "          6\n    2  3  5  7  8  21\n    1     9  10\n11  4  13    17\n12     14 15 16\n22        27\n23  24 25 26\n30\n\n";   
 }
 void showMap::handle(int i)
 {

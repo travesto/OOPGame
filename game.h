@@ -12,13 +12,12 @@ class game
         ~game(); //dtor
         void input(string in);
         // string showMap(char m) {};
-        void init();
+        void init() const;
         void deadlineDec();
 		void changeDeadline(int deadlineChange);
         //void deadlineInc();
-        void checkTime();
+        void checkTime() const;
         static game* getter();
-        room* gamePlayerGet();
     private:
         game(); //ctor
         game(game const& copy) {};

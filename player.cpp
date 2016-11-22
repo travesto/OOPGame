@@ -14,7 +14,7 @@ player* player::playerGet()
 {
     return playerInstance;
 }
-room* player::getLocation()
+room* player::getLocation() const
 {
     return curLoc;
 }
