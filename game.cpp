@@ -74,10 +74,14 @@ void game::init() const
     // twentininth->setRoom(WEST, twentieighth);
 
     first->addDesc("\nYou're in your Cubicle. It's small, beige, and boring.\nThere's a poster of a kitty on the wall telling you to 'Hang in there buddy!'\nMotivation +1. Cynicism +5.\nThere are doors to the NORTH and SOUTH.");
+	//cout << "item generating." << endl;
+	first->itemGeneration("POSTER");
+	//cout << "item generated." << endl;
     
     second->addDesc("\nYou're in the Hallway. The incandescent lights flicker drearily,\nreminding you of the soul-less nature of corporate America.\nThere are doors to the EAST and SOUTH.");
     
     third->addDesc("\nYou're in the Copy Room. The Xerox machine hums and whirs, perpetually copying, scanning, printing, and jamming;\nan apt metaphor for your life.\nThere are doors to the EAST and WEST.");
+	third->itemGeneration("XEROX MACHINE");
     
     fourth->addDesc("\nYou're in the Hallway. The incandescent lights flicker drearily, reminding you of the soul-less nature of corporate America.\nThere are doors to the EAST and WEST.");
     
@@ -93,13 +97,15 @@ void game::init() const
     
     tenth->addDesc("\nYou're in the Hallway. The incandescent lights flicker drearily,\nreminding you of the soul-less nature of corporate America.\nThere are doors to the NORTH and SOUTH.");
     
-    eleventh->addDesc("\nIt's the Break Room. 'LOOK AROUND' to see if anyone is here?\nThere are doors to the EAST and SOUTH.");
+    eleventh->addDesc("\nIt's the Break Room. There's a coffee maker and some cups sitting on the desk.\n'LOOK AROUND' to see if anyone is here?\nThere are doors to the EAST and SOUTH.");
+	eleventh->itemGeneration("COFFEE MAKER");
     
     twelfth->addDesc("\nYou're in the Hallway. The incandescent lights flicker drearily,\nreminding you of the soul-less nature of corporate America.\nThere are doors to the NORTH and SOUTH.");
     
     thirteenth->addDesc("\nYou're in the Server Closet. Wires. Wires everywhere.\nThe closet is a mess. You keep meaning to fix this, but where to start?\nThere are rooms to the SOUTH and WEST.");
-    
+
     fourteenth->addDesc("\nYou're in the Bathroom. There's a pervasive smell of urine and those urinal donut things.\nThere are doors to the NORTH and EAST.");
+	fourteenth->itemGeneration("BATHROOM");
     
     fifteenth->addDesc("\nYou're in the Janitor Closet. It's mostly mops and cleaning supplies. What did you expect?\nThere are doors to the EAST, SOUTH, and WEST.");
     
@@ -108,13 +114,16 @@ void game::init() const
     seventeenth->addDesc("\nYou're in the Stairwell. There's stairs going up and down, which is odd because there's only one floor.\nThere are doors to the NORTH and SOUTH.");
     
     eighteenth->addDesc("You push on the wall only to find it's actually a door!\nYou're outside of the Boss's Bathroom. Maybe you should 'LOOK AROUND' to see if he's there.\nThere are doors to the WEST.");
+	eighteenth->itemGeneration("BOSS' BATHROOM");
 
     twentifirst->addDesc("\nYou're in the Company Dungeon. It's dark and damp. Strange noises echo in the dark. Your skin crawls.\nThere are doors to the WEST.");
     
     twentisecond->addDesc("\nYou're in the Call Center. The phones ring incessantly. Ask not for whom the phone rings. It rings for thee.\nThere are doors to the NORTH and SOUTH.");
+	twentisecond->itemGeneration("PHONE");
     
-    twentithird->addDesc("\nYou're in the Commissary. The smell of questionable meals wafts under your nose.\nYou're put off by the mystery amalgamation they're serving today.\nThere are doors to the NORTH, EAST, and SOUTH.");
-    
+    twentithird->addDesc("\nYou're in the Commissary. The smell of questionable meals wafts under your nose.\nYou're put off by the mystery amalgamation they're serving today. You could try to eat some, but is that a good idea when you're in a hurry?\nThere are doors to the NORTH, EAST, and SOUTH.");
+	twentithird->itemGeneration("FOOD");
+
     twentifourth->addDesc("\nYou're in the Hallway. The incandescent lights flicker drearily,\nreminding you of the soul-less nature of corporate America.\nThere are doors to the EAST and WEST.");
     
     twentififth->addDesc("\nYou're in the Testing Lab. The room is incredibly sterile. And here you are tracking your dirty shoes across the floor!\nThere are doors to the EAST and WEST.");
@@ -130,7 +139,7 @@ void game::init() const
     //START DIALOGUE
     cout << "\nMONDAY -- 9AM\nYou've settled into the routine at you job here at PratherCorp.\nEach day you show up, check your email, check Reddit, get coffee, go to the bathroom to play Tetris on your phone.\nCheck your email. Ignore the email your mom sent you.\nRead the memo about TPS reports. Toss the memo into hoop over the garbarge.\nYou miss.\nLunch break!\nSomeone ate your sandwich in the break room, probably Steve...\nBack to your Desk. Check email. Check Re--OH CRAP\nYou see your boss walking across the office towards you. You hunker down hoping to go unnoticed.\n'Well hello.' says Lumbergh.\n'Listen, I'm going to need one those computery programs you make for my board meeting at 5 today. \nThink you can do that? If you could do that, that would be greeaaat.'\nLumbergh leaves. You look at your computer. You think about crying. You think about quitting. You bang you head on the keyboard.\nYou take a deep breath and start typing.\nHuh. It only took you like an hour to write.\nMust be due to your excellent Professors.\nYou save the program to your floppy. You get up."<< endl;
     
-    cout << "\nWhat would you like to do?\nYou have " << deadline << " moves to find your boss!\nYou can 'GO NORTH' or a similar direction.\nYou can also 'CHECK TIME' and look at the 'MAP'\n"<< endl;
+    cout << "\nWhat would you like to do?\nYou have " << deadline << " moves to find your boss!\nYou can 'GO NORTH' or a similar direction.\nYou can also 'CHECK TIME', look at the 'MAP', or EXAMINE and USE items near you.\n"<< endl;
 }
 
 game::game()
@@ -139,6 +148,7 @@ game::game()
     commandChain = new go();
     commandChain->addNext(new look());
     commandChain->addNext(new check());
+	commandChain->addNext(new examine());
     commandChain->addNext(new use());
     commandChain->addNext(new no());
     commandChain->addNext(new showMap());

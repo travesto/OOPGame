@@ -94,6 +94,14 @@ class quit : public textHandlerBase
         void executeInternal(string command);
         void handle(int i) {};
 };
+class examine : public textHandlerBase
+{
+public:
+	examine() : textHandlerBase("EXAMINE") {};
+	~examine();
+	void executeInternal(string args);
+	void handle(int i);
+};
 class use : public textHandlerBase
 {
 public:

@@ -6,6 +6,7 @@ class item //this class contains the data on the items present in the game. This
 	private:
 		std::string name;
 		std::string description;
+		std::string useText;
 		int deadlineEffect;
 		int timesUsable;
 		bool doesDisappear;
@@ -13,7 +14,12 @@ class item //this class contains the data on the items present in the game. This
 	public:
 		item() //used when creating empty items in the itemList.
 			{name = "empty"; description = "empty"; deadlineEffect = 0; timesUsable = 0; doesDisappear = false;}
-		item(std::string startName, std::string startDescription, int change, int startAmount)
-			{name = startName; description = startDescription; deadlineEffect = change; timesUsable = startAmount; doesDisappear = false;}
+		item(std::string startName, std::string startDescription, int change, int startAmount, string startText)
+		{name = startName; description = startDescription; deadlineEffect = change; timesUsable = startAmount; doesDisappear = false; useText = startText;}
 		~item() {};
+
+		std::string use()
+			{return useText;}
+		int deadlineChange()
+		{return deadlineEffect;}
 };

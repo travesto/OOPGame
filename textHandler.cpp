@@ -143,6 +143,26 @@ void quit::executeInternal(string args)
     exit(0);
 }
 //item interface
+void examine::executeInternal(string args)
+{
+	player* whereAmI = player::playerGet();
+	room* playerLocation = whereAmI->getLocation();
+	if (playerLocation->checkForItems(args) >= 0)
+	{
+		game* action = game::getter();
+		playerLocation->examineItem(args,std::cout);
+		cout << endl;
+	}
+	else
+	{
+		cout << "There is no such thing in your vicinity.\n\n";
+	}
+}
+void examine::handle(int i)
+{
+	// textHandlerBase* temp = getNext();
+	next->handle(i);
+}
 void use::executeInternal(string args)
 {
 	// cout << "I'm being used!" << endl;
@@ -151,9 +171,10 @@ void use::executeInternal(string args)
 	// cout << "TEST" << endl;
     if (playerLocation->checkForItems(args) >= 0)
 	{
-		cout << "experimental item used.\n\n";
 		game* action = game::getter();
-		action->changeDeadline(playerLocation->useItem(args));
+		int change = playerLocation->useItem(args);
+		cout << "deadline changed by " << change << endl << endl;
+		action->changeDeadline(change);
 	}
 	else
 	{

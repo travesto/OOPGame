@@ -55,7 +55,7 @@ class room
 {
     public:
         room();
-        ~room(); 
+		~room();
         // void npcGeneration() {};
         void addDesc(string x);
 		void itemGeneration(string itemName);
