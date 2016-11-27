@@ -17,6 +17,7 @@ class game
 		void changeDeadline(int deadlineChange);
         //void deadlineInc();
         void checkTime() const;
+        int deadlineGetter() {return deadline;}
         static game* getter();
     private:
         game(); //ctor
