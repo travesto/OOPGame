@@ -187,17 +187,17 @@ void game::deadlineDec()
 void game::input(string com)
 {
     // std::cout << "AKBAR!";
-    string input = com;
+    string in = com;
     string remaining = "";
     for (int i = 0; (unsigned)i < com.length(); i++)
     {
         if (com[i] == ' ')
         {
-            input = com.substr(0, i);
+            in = com.substr(0, i);
             remaining = com.substr(i+1);
             break;
         }
     }
     // std::cout << "WOOF";
-    commandChain->execute(input, remaining);
+    commandChain->execute(in, remaining);
 }

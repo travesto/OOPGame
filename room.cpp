@@ -92,18 +92,18 @@ void room::itemGeneration(string itemName)
 		description = "This is the Boss' bathroom. It's quite a bit nicer than the one you have to use. Is that toilet gold-plated?!\n";
 		deadlineEffect = -6; //this is the impact of using the item on the deadline. A positive number will cause the time before deadline to increase, whereas a negative number will do vice versa.
 		timesUsable = 1;  //this is the number of times that the item is usable.
-		useText = "Really? OK. it's your funeral...\nThat was much nicer than you expected, and you're lucky your boss didn't come by, but you feel like it ate up even more time than usual...";
+		useText = "Really? OK. it's your funeral...\nThat was much nicer than usual, and you're lucky your boss didn't come by, but you feel like it ate up even more time than usual...\n";
 	}
 	else if (itemName == "PHONE")
 	{
-		description = "The phone keeps ringing. Is anyone going to answer it? It's not really your job to worry about it, though...\n";
+		description = "There's a phone that keeps ringing. Is anyone going to answer it? It's not really your job to worry about it, though...\n";
 		deadlineEffect = -3; //this is the impact of using the item on the deadline. A positive number will cause the time before deadline to increase, whereas a negative number will do vice versa.
 		timesUsable = 1;  //this is the number of times that the item is usable.
-		useText = "You answer the phone to find a very angry customer on the line. Something about 'false advertising.' You try to appease him, to no avail.\n By the time you finally get the chance to hang up on the guy, you realize that you have spent way too long here.\n Your faith in humanity died a little during that conversation. Cynicism +10";
+		useText = "You answer the phone to find a very angry customer on the line. Something about 'false advertising.' You try to appease him, to no avail.\n By the time you finally get the chance to hang up on the guy, you realize that you have spent way too long here.\n Your faith in humanity died a little during that conversation. Cynicism +10\n";
 	}
 	else if (itemName == "FOOD")
 	{
-		description = "Can you really call this food? The smell alone feels like it could knock you out. Maybe you should keep your distance...";
+		description = "Can you really call this food? The smell alone feels like it could knock you out. Maybe you should keep your distance...\n";
 		deadlineEffect = 5; //this is the impact of using the item on the deadline. A positive number will cause the time before deadline to increase, whereas a negative number will do vice versa.
 		timesUsable = 1;  //this is the number of times that the item is usable.
 		useText = "Against your better judgement, you quickly order some 'food' and scarf it down.\n immediately, your head clears, and you feel like you could run a mile. What on Earth did they put in that thing?\n";

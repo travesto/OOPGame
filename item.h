@@ -19,7 +19,7 @@ class item //this class contains the data on the items present in the game. This
 		~item() {};
 
 		std::string use()
-			{return useText;}
+		{if (timesUsable != 0) return useText; return "You've already done that.\n";}
 		int deadlineChange()
-		{return deadlineEffect;}
+		{if (timesUsable == 0) return 0; timesUsable--; return deadlineEffect;}
 };

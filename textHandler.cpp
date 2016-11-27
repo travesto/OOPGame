@@ -149,7 +149,6 @@ void examine::executeInternal(string args)
 	room* playerLocation = whereAmI->getLocation();
 	if (playerLocation->checkForItems(args) >= 0)
 	{
-		game* action = game::getter();
 		playerLocation->examineItem(args,std::cout);
 		cout << endl;
 	}
